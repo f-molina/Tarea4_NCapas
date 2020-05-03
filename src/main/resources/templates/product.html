@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Productos</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Productos</h1>
+
+      <form method="POST" th:action="@{/validar}" , th:object="${product}">
+        <div class="form-group">
+          <label for="code">Codigo</label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{code}"
+            id="code"
+          />
+          <span th:errors="*{code}" style="color: #FF0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{name}"
+            id="name"
+          />
+          <span th:errors="*{name}" style="color: #FF0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="brand">Marca</label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{brand}"
+            id="brand"
+          />
+          <span th:errors="*{brand}" style="color: #FF0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="description">Descripcion</label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{description}"
+            id="description"
+          />
+          <span th:errors="*{description}" style="color: #FF0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="stock">Existencias</label>
+          <input
+            type="number"
+            class="form-control"
+            th:field="*{stock}"
+            id="stock"
+          />
+          <span th:errors="*{stock}" style="color: #FF0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="inDate">Fecha ingreso</label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{inDate}"
+            id="inDate"
+          />
+          <span th:errors="*{inDate}" style="color: #FF0000;"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
