@@ -1,24 +1,34 @@
 package com.uca.capas.hibernate.domain;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Product {
 
+	@NotEmpty
 	@Size(min = 12, max = 12, message = "El codigo debe de tener 12 digitos")
+	@Digits(integer = 12, fraction = 0, message = "El codigo debe ser un numero entero")
 	private String code;
 
+	@NotEmpty
 	@Size(max = 100, message = "Maximo 100 caracteres")
 	private String name;
 
+	@NotEmpty
 	@Size(max = 100, message = "Maximo 100 caracteres")
 	private String brand;
 
+	@NotEmpty
 	@Size(max = 500, message = "Maximo 500 caracteres")
 	private String description;
 
-	private Integer stock;	
+	@NotEmpty
+	@Digits(integer = 10, fraction = 0, message = "Debe ser entero")
+	private String stock;	
 
+	@NotEmpty
 	@Pattern(regexp = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$",
 	 message = "La fecha debe de estar en formato dd/mm/yyyy")
 	private String inDate;
@@ -27,7 +37,7 @@ public class Product {
 		super();
 	}
 
-	public Product(String code, String name, String brand, String description, Integer stock, String inDate) {
+	public Product(String code, String name, String brand, String description, String stock, String inDate) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -69,11 +79,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public Integer getStock() {
+	public String getStock() {
 		return stock;
 	}
 
-	public void setStock(Integer stock) {
+	public void setStock(String stock) {
 		this.stock = stock;
 	}
 

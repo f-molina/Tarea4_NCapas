@@ -6,15 +6,14 @@ import com.uca.capas.hibernate.domain.Product;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ProductController {
 
-    @GetMapping("/index")
+    @RequestMapping("/producto")
 	public ModelAndView index11() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("product", new Product());
@@ -22,7 +21,7 @@ public class ProductController {
 		return mav;
 	}
 
-    @PostMapping("/validar")
+    @RequestMapping("/validar")
     public ModelAndView procesar(@Valid @ModelAttribute Product product, BindingResult result){
         ModelAndView mav = new ModelAndView();
 
